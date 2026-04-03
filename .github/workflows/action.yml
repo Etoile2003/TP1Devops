@@ -19,4 +19,5 @@ jobs:
     steps:
       - name: Build Docker images
         run: |
-          docker build -t myservice:latest -f etoilesanss/Dockerfile .
+          docker build -t etoilesanss/tp1dockerap:latest -f Dockerfile .
+          
