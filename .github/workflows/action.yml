@@ -14,8 +14,11 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'temurin'
+
+      - name: Verify Java version
+        run: java -version
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -32,12 +35,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=Etoile2003_TP1Devops
-            -Dsonar.organization=etoilesanss
-            -Dsonar.sources=.
-            -Dsonar.tests=Test
-            -Dsonar.exclusions=**/__pycache__/**,**/.pytest_cache/**,**/.venv/**
       - name: Build Docker image
         run: docker build -t etoilesanss/tp1dockerap:latest .
