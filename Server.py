@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flasgger import Swagger
+from PriceService import getPrice
 
 app = Flask(__name__)
 
@@ -42,6 +43,12 @@ def hello_world():
               example: Hello World!
     """
     return jsonify({"message": "Hello World!"}), 200
+
+
+
+@app.route("/", methods=["GET"], endpoint="getPrice")
+def getPrice():
+    return jsonify({"price": getPrice()}), 200
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5050)
