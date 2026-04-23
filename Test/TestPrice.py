@@ -6,4 +6,4 @@ from PriceService import *
 
 class TestPrice(unittest.TestCase):
     def test_price(self):
-        assert getPrice() >=0
+        assert get_price() >=0
